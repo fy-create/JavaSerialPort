@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar"
+	name="Create Runnable Jar for Project SerialPortUtilWin">
+	<property name="SERIAL_HOME" value="../" />
+	<target name="create_run_jar">
+		<jar destfile="${SERIAL_HOME}/SerialPortSample/lib/serialPortSDK.jar"
+			filesetmanifest="mergewithoutmain">
+			<fileset dir="${SERIAL_HOME}/SerialPortSDK/bin" />
+			<zipfileset excludes="META-INF/*.SF"
+				src="${SERIAL_HOME}/SerialPortSDK/lib/RXTXcomm.jar" />
+		</jar>
+	</target>
+</project>
