@@ -19,10 +19,10 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
- class SerialWriter extends Thread {
-    private OutputStream out;
-    private volatile boolean stop = false;
-    private Vector<Integer> dataVector = new Vector<Integer>();
+class SerialWriter extends Thread {
+    private OutputStream     out;
+    private volatile boolean stop       = false;
+    private Vector<Integer>  dataVector = new Vector<Integer>();
 
     public SerialWriter(OutputStream out) {
         setName("SerialWriter");
@@ -55,10 +55,10 @@ import javax.script.ScriptException;
     }
 }
 
- class SerialReader extends Thread {
+class SerialReader extends Thread {
     private volatile boolean stop = false;
-    private MySerialPort mySerialPort;
-    private InputStream in;
+    private MySerialPort     mySerialPort;
+    private InputStream      in;
 
     public SerialReader(MySerialPort mySerialPort) {
         setName("SerialReader");
@@ -98,64 +98,64 @@ import javax.script.ScriptException;
     }
 }
 
- class MySerialPort {
+class MySerialPort {
     private MyOutputStream myOutputStream;
 
-    private int CONNECTED = 0;
+    private int            CONNECTED  = 0;
 
-    private int DISCONNECT = -1;
+    private int            DISCONNECT = -1;
 
-    private String portName;
+    private String         portName;
 
-    private int portSpeed;
+    private int            portSpeed;
 
-    private int portDataBit;
+    private int            portDataBit;
 
-    private int portStopBit;
+    private int            portStopBit;
 
-    private int portParityBit;
+    private int            portParityBit;
 
-    private InputStream portInStream;
+    private InputStream    portInStream;
 
-    private OutputStream portOutStream;
+    private OutputStream   portOutStream;
 
-    private SerialPort serialPort;
+    private SerialPort     serialPort;
 
-    private int portState;
+    private int            portState;
 
-    private SerialWriter serialWriterThread;
+    private SerialWriter   serialWriterThread;
 
-    private SerialReader serialReaderThread;
+    private SerialReader   serialReaderThread;
 
     public String getPortName() {
         return portName;
     }
 
-    public void  setPortName(String portName) {
+    public void setPortName(String portName) {
         this.portName = portName;
     }
 
-    public int  getPortSpeed() {
+    public int getPortSpeed() {
         return portSpeed;
     }
 
-    public void  setPortSpeed(int portSpeed) {
+    public void setPortSpeed(int portSpeed) {
         this.portSpeed = portSpeed;
     }
 
-    public int  getPortDataBit() {
+    public int getPortDataBit() {
         return portDataBit;
     }
 
-    public void  setPortDataBit(int portDataBit) {
+    public void setPortDataBit(int portDataBit) {
         this.portDataBit = portDataBit;
     }
 
-    public int  getPortStopBit() {
+    public int getPortStopBit() {
         return portStopBit;
     }
 
-    public void  setPortStopBit(int portStopBit) {
+    public void setPortStopBit(int portStopBit) {
         this.portStopBit = portStopBit;
     }
 
@@ -163,7 +163,7 @@ import javax.script.ScriptException;
         return portParityBit;
     }
 
-    public void  setPortParityBit(int portParityBit) {
+    public void setPortParityBit(int portParityBit) {
         this.portParityBit = portParityBit;
     }
 
@@ -171,27 +171,27 @@ import javax.script.ScriptException;
         return portOutStream;
     }
 
-    public int  getPortState() {
+    public int getPortState() {
         return portState;
     }
 
-    public void  setPortState(int portState) {
+    public void setPortState(int portState) {
         this.portState = portState;
     }
 
-    public MyOutputStream  getMyOutputStream() {
+    public MyOutputStream getMyOutputStream() {
         return myOutputStream;
     }
 
-    public void  setMyOutputStream(MyOutputStream myOutputStream) {
+    public void setMyOutputStream(MyOutputStream myOutputStream) {
         this.myOutputStream = myOutputStream;
     }
 
-    public SerialWriter  getSerialWriterThread() {
+    public SerialWriter getSerialWriterThread() {
         return serialWriterThread;
     }
 
-    public InputStream  getPortInStream() {
+    public InputStream getPortInStream() {
         return portInStream;
     }
 
@@ -212,7 +212,7 @@ import javax.script.ScriptException;
         return sb.toString();
     }
 
-    public void  consolePrint(int v) {
+    public void consolePrint(int v) {
         if (myOutputStream != null) {
             try {
                 myOutputStream.write(v);
@@ -223,7 +223,7 @@ import javax.script.ScriptException;
 
     }
 
-    public void  consoleFlush() {
+    public void consoleFlush() {
         if (myOutputStream != null) {
             try {
                 myOutputStream.flush();
@@ -233,7 +233,7 @@ import javax.script.ScriptException;
         }
     }
 
-    public CommPortIdentifier  getPort(String name) {
+    public CommPortIdentifier getPort(String name) {
         Enumeration<?> ports = CommPortIdentifier.getPortIdentifiers();
         while (ports.hasMoreElements()) {
             CommPortIdentifier port = (CommPortIdentifier) ports.nextElement();
@@ -244,7 +244,7 @@ import javax.script.ScriptException;
         return null;
     }
 
-    public void  connect() {
+    public void connect() {
         CommPortIdentifier port = getPort(this.portName);
         if (port != null) {
             try {
@@ -270,10 +270,6 @@ import javax.script.ScriptException;
                     serialReaderThread = new SerialReader(this);
                     serialReaderThread.start();
 
-                    // serialPort.removeEventListener();// TODO
-                    // SerialPortEventListener listen = new MySerialPortEventlisten(this, portInStream, portOutStream);
-                    // serialPort.addEventListener(listen);
-
                     this.portState = CONNECTED;
                     System.out.println("Connected!");
 
@@ -294,7 +290,7 @@ import javax.script.ScriptException;
         }
     }
 
-    public void  disConnect() {
+    public void disConnect() {
         if (serialPort == null) {
             System.out.println("serialPort is null");
             return;
@@ -325,76 +321,12 @@ import javax.script.ScriptException;
     }
 }
 
-// class  MySerialPortEventlisten implements SerialPortEventListener {
-//
-// private MySerialPort serialPort;
-//
-// private InputStream portInStream;
-//
-// private byte[] buffer = new byte[7 * 1024];
-//
-// public MySerialPortEventlisten(MySerialPort serialPort, InputStream portInStream, OutputStream portOutStream) {
-// super();
-// this.serialPort = serialPort;
-// this.portInStream = portInStream;
-// }
-//
-// public void serialEvent(SerialPortEvent event) {
-// switch (event.getEventType()) {
-// case SerialPortEvent.CTS:
-// System.out.println("CTS event occured.");
-// break;
-// case SerialPortEvent.CD:
-// System.out.println("CD event occured.");
-// break;
-// case SerialPortEvent.BI:
-// System.out.println("BI event occured.");
-// break;
-// case SerialPortEvent.DSR:
-// System.out.println("DSR event occured.");
-// break;
-// case SerialPortEvent.FE:
-// System.out.println("FE event occured.");
-// break;
-// case SerialPortEvent.OE:
-// System.out.println("OE event occured.");
-// break;
-// case SerialPortEvent.PE:
-// System.out.println("PE event occured.");
-// break;
-// case SerialPortEvent.RI:
-// System.out.println("RI event occured.");
-// break;
-// case SerialPortEvent.OUTPUT_BUFFER_EMPTY:
-// // System.out.println("OUTPUT_BUFFER_EMPTY event occured.");
-// break;
-// case SerialPortEvent.DATA_AVAILABLE:
-// try {
-// int len;
-// synchronized (buffer) {
-// while (portInStream.available() != 0 && (len = portInStream.read(buffer)) != -1) {
-// for (int i = 0; i < len; i++) {
-// serialPort.consolePrint(buffer[i]);
-// }
-// }
-// }
-// } catch (Exception e) {
-// System.out.println(e.getMessage());
-// System.out.println(e);
-// }
-//
-// break;
-// }
-// serialPort.consoleFlush();
-// }
-// }
-
- class SerialPortUtil {
+class SerialPortUtil {
 
     private static PrintStream systemOut;
-    public static boolean REPLACE_CR_WITH_LFCR = false;
-    public static boolean TIME_PREFIX = false;
-    public static boolean IGNORE_OUTPUT_CR = true;
+    public static boolean      REPLACE_CR_WITH_LFCR = false;
+    public static boolean      TIME_PREFIX          = false;
+    public static boolean      IGNORE_OUTPUT_CR     = true;
 
     public static MySerialPort connect(SerialPortConf serialPortConf) {
         if (serialPortConf == null) {
@@ -432,8 +364,7 @@ import javax.script.ScriptException;
                 for (int i = 0; i < databytes.length; i++) {
                     serialPortWriterThread.write(databytes[i]);
                 }
-                // serialPort.getPortOutStream().write();
-                // serialPort.getPortOutStream().flush();
+
                 if (delay > 0) {
                     Thread.sleep(delay);
                 }
@@ -502,14 +433,6 @@ import javax.script.ScriptException;
         }
     }
 
-    // public static List<OutputStream> buildOutputList(OutputStream[] outs) {
-    // List<OutputStream> outputList = new ArrayList<OutputStream>();
-    // for (int i = 0; i < outs.length; i++) {
-    // outputList.add(outs[i]);
-    // }
-    // return outputList;
-    // }
-
     public static final String DATE_FORMAT_NOW = "yyyy.MM.dd HH:mm:ss ";
 
     public static String now() {
@@ -517,10 +440,6 @@ import javax.script.ScriptException;
         SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_NOW);
         return sdf.format(cal.getTime());
     }
-
-    // public static String getResource(Class<?> c, String name) throws MalformedURLException, URISyntaxException {
-    // return c.getResource(name).toURI().toURL().getFile();
-    // }
 
     private static ScriptEngine engine = null;
     static {
@@ -531,23 +450,18 @@ import javax.script.ScriptException;
             /* add file log */
             engine.eval("function LOG_FILE(a)        {    serialCommand.addFileLog(a);    }");
             /* script datetimeprefix */
-            engine.eval("function SHOW_DATE_TIME(a)        {    serialCommand.showDateTime(a);    }");
+            engine.eval("function SHOW_DATE_TIME(a)  {    serialCommand.showDateTime(a)   }");
             /* script println */
-            engine.eval("function PRINT_LN(a)        {    serialCommand.println(a);    }");
+            engine.eval("function PRINT_LN(a)        {    serialCommand.println(a);        }");
 
             engine.eval("function SEND_CMD1(a)       {    serialCommand.sendCommand(a);    }");
             engine.eval("function SEND_CMD2(a, b)    {    serialCommand.sendCommand(a,b);  }");
             engine.eval("function SEND_CMD3(a, b, c) {    serialCommand.sendCommand(a,b,c);}");
 
             String funcSetSerialPortConfigure = //
-            //
-            //
-
             "function SET_SERIAL( portName,  portSpeed,  portDataBit,  portStopBit, portParityBit){\r\n"
                     + "			   serialCommand.setSerialPortConf(portName,portSpeed,portDataBit,portStopBit,portParityBit);\r\n" //
-                    + "}"
-                    //
-                    //
+                    + "}"//
                     + "function SEND() {\r\n" + //
                     "	if (arguments.length == 1)\r\n" + //
                     "	{\r\n" + //
