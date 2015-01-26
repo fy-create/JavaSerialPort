@@ -16,23 +16,23 @@ public class SerialPortConf /* implements IPort */{
         this.stopbit = stopbit;
     }
 
-    public String /* OBF */getPortname() {
+    public String  getPortname() {
         return portname;
     }
 
-    public int /* OBF */getSpeed() {
+    public int  getSpeed() {
         return speed;
     }
 
-    public int /* OBF */getDatabit() {
+    public int  getDatabit() {
         return databit;
     }
 
-    public int /* OBF */getStopbit() {
+    public int  getStopbit() {
         return stopbit;
     }
 
-    public int /* OBF */getParityBit() {
+    public int  getParityBit() {
         return parityBit;
     }
 

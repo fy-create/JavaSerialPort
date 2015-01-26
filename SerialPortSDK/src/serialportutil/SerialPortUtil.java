@@ -19,7 +19,7 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
-/* OBF */class SerialWriter extends Thread {
+ class SerialWriter extends Thread {
     private OutputStream out;
     private volatile boolean stop = false;
     private Vector<Integer> dataVector = new Vector<Integer>();
@@ -33,7 +33,7 @@ import javax.script.ScriptException;
         dataVector.add(c);
     }
 
-    public/* OBF */void setStop(boolean stop) {
+    public void setStop(boolean stop) {
         this.stop = stop;
     }
 
@@ -55,7 +55,7 @@ import javax.script.ScriptException;
     }
 }
 
-/* OBF */class SerialReader extends Thread {
+ class SerialReader extends Thread {
     private volatile boolean stop = false;
     private MySerialPort mySerialPort;
     private InputStream in;
@@ -66,7 +66,7 @@ import javax.script.ScriptException;
         this.in = mySerialPort.getPortInStream();
     }
 
-    public/* OBF */void setStop(boolean stop) {
+    public void setStop(boolean stop) {
         this.stop = stop;
     }
 
@@ -98,7 +98,7 @@ import javax.script.ScriptException;
     }
 }
 
-/* OBF */class MySerialPort {
+ class MySerialPort {
     private MyOutputStream myOutputStream;
 
     private int CONNECTED = 0;
@@ -127,71 +127,71 @@ import javax.script.ScriptException;
 
     private SerialReader serialReaderThread;
 
-    public String/* OBF */getPortName() {
+    public String getPortName() {
         return portName;
     }
 
-    public void /* OBF */setPortName(String portName) {
+    public void  setPortName(String portName) {
         this.portName = portName;
     }
 
-    public int /* OBF */getPortSpeed() {
+    public int  getPortSpeed() {
         return portSpeed;
     }
 
-    public void /* OBF */setPortSpeed(int portSpeed) {
+    public void  setPortSpeed(int portSpeed) {
         this.portSpeed = portSpeed;
     }
 
-    public int /* OBF */getPortDataBit() {
+    public int  getPortDataBit() {
         return portDataBit;
     }
 
-    public void /* OBF */setPortDataBit(int portDataBit) {
+    public void  setPortDataBit(int portDataBit) {
         this.portDataBit = portDataBit;
     }
 
-    public int /* OBF */getPortStopBit() {
+    public int  getPortStopBit() {
         return portStopBit;
     }
 
-    public void /* OBF */setPortStopBit(int portStopBit) {
+    public void  setPortStopBit(int portStopBit) {
         this.portStopBit = portStopBit;
     }
 
-    public int/* OBF */getPortParityBit() {
+    public int getPortParityBit() {
         return portParityBit;
     }
 
-    public void /* OBF */setPortParityBit(int portParityBit) {
+    public void  setPortParityBit(int portParityBit) {
         this.portParityBit = portParityBit;
     }
 
-    public/* OBF */OutputStream getPortOutStream() {
+    public OutputStream getPortOutStream() {
         return portOutStream;
     }
 
-    public int /* OBF */getPortState() {
+    public int  getPortState() {
         return portState;
     }
 
-    public void /* OBF */setPortState(int portState) {
+    public void  setPortState(int portState) {
         this.portState = portState;
     }
 
-    public MyOutputStream /* OBF */getMyOutputStream() {
+    public MyOutputStream  getMyOutputStream() {
         return myOutputStream;
     }
 
-    public void /* OBF */setMyOutputStream(MyOutputStream myOutputStream) {
+    public void  setMyOutputStream(MyOutputStream myOutputStream) {
         this.myOutputStream = myOutputStream;
     }
 
-    public SerialWriter /* OBF */getSerialWriterThread() {
+    public SerialWriter  getSerialWriterThread() {
         return serialWriterThread;
     }
 
-    public InputStream /* OBF */getPortInStream() {
+    public InputStream  getPortInStream() {
         return portInStream;
     }
 
@@ -212,7 +212,7 @@ import javax.script.ScriptException;
         return sb.toString();
     }
 
-    public void /* OBF */consolePrint(int v) {
+    public void  consolePrint(int v) {
         if (myOutputStream != null) {
             try {
                 myOutputStream.write(v);
@@ -223,7 +223,7 @@ import javax.script.ScriptException;
 
     }
 
-    public void /* OBF */consoleFlush() {
+    public void  consoleFlush() {
         if (myOutputStream != null) {
             try {
                 myOutputStream.flush();
@@ -233,7 +233,7 @@ import javax.script.ScriptException;
         }
     }
 
-    public CommPortIdentifier /* OBF */getPort(String name) {
+    public CommPortIdentifier  getPort(String name) {
         Enumeration<?> ports = CommPortIdentifier.getPortIdentifiers();
         while (ports.hasMoreElements()) {
             CommPortIdentifier port = (CommPortIdentifier) ports.nextElement();
@@ -244,7 +244,7 @@ import javax.script.ScriptException;
         return null;
     }
 
-    public void /* OBF */connect() {
+    public void  connect() {
         CommPortIdentifier port = getPort(this.portName);
         if (port != null) {
             try {
@@ -294,7 +294,7 @@ import javax.script.ScriptException;
         }
     }
 
-    public void /* OBF */disConnect() {
+    public void  disConnect() {
         if (serialPort == null) {
             System.out.println("serialPort is null");
             return;
@@ -325,7 +325,7 @@ import javax.script.ScriptException;
     }
 }
 
-// class /* OBF */MySerialPortEventlisten implements SerialPortEventListener {
+// class  MySerialPortEventlisten implements SerialPortEventListener {
 //
 // private MySerialPort serialPort;
 //
@@ -389,7 +389,7 @@ import javax.script.ScriptException;
 // }
 // }
 
-/* OBF */class SerialPortUtil {
+ class SerialPortUtil {
 
     private static PrintStream systemOut;
     public static boolean REPLACE_CR_WITH_LFCR = false;
@@ -480,7 +480,7 @@ import javax.script.ScriptException;
         }
     }
 
-    public static/* OBF */void removeOutputStreams(MySerialPort serialPort) {
+    public static void removeOutputStreams(MySerialPort serialPort) {
         if (serialPort == null) {
             System.out.println("Add OutputStream error");
             return;
@@ -512,7 +512,7 @@ import javax.script.ScriptException;
 
     public static final String DATE_FORMAT_NOW = "yyyy.MM.dd HH:mm:ss ";
 
-    public static/* OBF */String now() {
+    public static String now() {
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_NOW);
         return sdf.format(cal.getTime());
@@ -570,7 +570,7 @@ import javax.script.ScriptException;
         }
     }
 
-    public static/* OBF */ScriptEngine initScriptEngine(AbstractSerialCommand serialCommand) throws ScriptException {
+    public static ScriptEngine initScriptEngine(AbstractSerialCommand serialCommand) throws ScriptException {
         engine.put("serialCommand", serialCommand);
         engine.put("SerialPortUnit", serialCommand.serialPortConf);
         return engine;

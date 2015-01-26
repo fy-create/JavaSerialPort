@@ -14,10 +14,10 @@ import java.util.List;
 
 import javax.script.ScriptEngine;
 
-class /* OBF */ConsoleInput extends Thread {
+class  ConsoleInput extends Thread {
     private volatile boolean stop = false;
 
-    private MySerialPort serialPort;
+    private MySerialPort     serialPort;
 
     public ConsoleInput(MySerialPort serialPort) {
         super();
@@ -38,14 +38,14 @@ class /* OBF */ConsoleInput extends Thread {
     }
 }
 
-class /* OBF */MyOutputStream extends OutputStream {
+class  MyOutputStream extends OutputStream {
     private List<OutputStream> outList;
 
-    public/* OBF */List<OutputStream> getOutList() {
+    public List<OutputStream> getOutList() {
         return outList;
     }
 
-    public void /* OBF */setOutList(List<OutputStream> consoleList) {
+    public void  setOutList(List<OutputStream> consoleList) {
         this.outList = consoleList;
     }
 
@@ -89,7 +89,7 @@ class /* OBF */MyOutputStream extends OutputStream {
         setOutList(new ArrayList<OutputStream>());
     }
 
-    public void/* OBF */write(int b) throws IOException {
+    public void write(int b) throws IOException {
         if (outList == null || outList.size() == 0)
             return;
         for (int i = 0; i < outList.size(); i++) {
@@ -114,7 +114,7 @@ class /* OBF */MyOutputStream extends OutputStream {
         }
     }
 
-    public void/* OBF */write(byte[] b) throws IOException {
+    public void write(byte[] b) throws IOException {
         for (int i = 0; i < b.length; i++) {
             write(b[i]);
         }
@@ -151,12 +151,12 @@ public abstract class AbstractSerialCommand extends Thread {
         }
     }
 
-    protected String scriptFile;
-    protected MySerialPort serialPort;
-    protected SerialPortConf serialPortConf;
-    private List<OutputStream> outList = new ArrayList<OutputStream>();
+    protected String           scriptFile;
+    protected MySerialPort     serialPort;
+    protected SerialPortConf   serialPortConf;
+    private List<OutputStream> outList      = new ArrayList<OutputStream>();
 
-    private ConsoleInput consoleInput = null;
+    private ConsoleInput       consoleInput = null;
 
     private void removeOutputStreams() {
         SerialPortUtil.removeOutputStreams(serialPort);
