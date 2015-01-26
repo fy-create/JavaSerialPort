@@ -489,5 +489,4 @@ class SerialPortUtil {
         engine.put("SerialPortUnit", serialCommand.serialPortConf);
         return engine;
     }
-
 }

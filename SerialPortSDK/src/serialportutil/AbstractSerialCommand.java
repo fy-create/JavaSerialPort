@@ -14,7 +14,7 @@ import java.util.List;
 
 import javax.script.ScriptEngine;
 
-class  ConsoleInput extends Thread {
+class ConsoleInput extends Thread {
     private volatile boolean stop = false;
 
     private MySerialPort     serialPort;
@@ -38,14 +38,14 @@ class  ConsoleInput extends Thread {
     }
 }
 
-class  MyOutputStream extends OutputStream {
+class MyOutputStream extends OutputStream {
     private List<OutputStream> outList;
 
     public List<OutputStream> getOutList() {
         return outList;
     }
 
-    public void  setOutList(List<OutputStream> consoleList) {
+    public void setOutList(List<OutputStream> consoleList) {
         this.outList = consoleList;
     }
 
@@ -301,5 +301,4 @@ public abstract class AbstractSerialCommand extends Thread {
         }
         return list;
     }
-
 }
