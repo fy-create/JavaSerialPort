@@ -1,5 +1,3 @@
-TODO
-
 SerialPort SDK (Windows Linux MAC)
 
 SerialPort SDK is a professional java serial port SDK,provides simple communication interface to connect to any serial port device.
@@ -30,7 +28,7 @@ University students
 
 This SDK include RXTX library.
 
-Setup
+###Setup
 RXTX 2.1-7
 -- Please uncompress rxtx-2.1-7-bins-r2.rar
 window
@@ -46,4 +44,5 @@ Mac
 - rxtx-2.1-7-bins-r2/Mac_OS_X/librxtxSerial.jnilib copy to system path
 
 
-
+### License
+JavaSerialPort is licensed under the [Apache 2 License](http://www.apache.org/licenses/LICENSE-2.0.html), meaning you can use it free of charge, without strings attached in commercial and non-commercial projects.
