@@ -1,23 +1,23 @@
-SerialPort SDK (Windows Linux MAC)
+SerialPort SDK (Windows, Linux, MAC OS)
 
-SerialPort SDK is a professional java serial port SDK,provides simple communication interface to connect to any serial port device.
+SerialPort SDK is a professional Java serial port SDK. It provides a simple communication interface to connect any serial port devices.
 
-* You can use this program for implementing, debuging serial protocol. 
+* You can use it to implement or debug serial protocol. 
 * You can send and capture data. 
-* You can change communications chanel's settings easily including setting of non-standard baudrate.
-* You can write java code to automate some specific tasks
-* You can using javascript to send command.
+* You can change communication channel’s settings easily including the setting for non-standard baudrate.
+* You can write Java code to automate some specific tasks.
+* You can perform JavaScript to send command.
 
 
 SerialPort SDK can be successfully used for:
-* Interception and analysis of data transfers between any serial device and Windows application
-* Debugging any serial software or hardware
-* Development of serial peripheral hardware
-* Development of serial device drivers
-* Researching the functionality of any third-party software and hardware
-* Implementing, debugging and testing serial protocol between device and device driver
+* Interception and analysis of data transferring between any serial devices and Windows applications.
+* Debugging any serial software or hardware.
+* Development of serial peripheral hardware.
+* Development of serial device drivers.
+* Researching the functionality of any third-party software and hardware.
+* Implementing, debugging or testing serial protocol between device and device driver.
 
-SerialPort SDK can be successfully used by:
+SerialPort SDK can be used by:
 * Software developers
 * Hardware engineers
 * Programmers
@@ -26,18 +26,19 @@ SerialPort SDK can be successfully used by:
 * Lab experts
 * University students
 
-This SDK include RXTX library.
+This SDK includes the RXTX library.
 
 ###Setup
 RXTX 2.1-7
 -- Please uncompress rxtx-2.1-7-bins-r2.rar
-window
+
+Window
 - rxtx-2.1-7-bins-r2/Windows/i368-mingw32/rxtxSerial.dll copy to system path(e.g. c:\windows\system32\)
 
-linux32
+Linux32
 - rxtx-2.1-7-bins-r2/Linux/i686-unknown-linux-gnu/librxtxSerial.so copy to system path(e.g. /lib)
 
-linux64
+Linux64
 - rxtx-2.1-7-bins-r2/Linux/x86_64-unknown-linux-gnu/librxtxSerial.so copy to system path(e.g. /lib) 
 
 Mac
@@ -47,7 +48,7 @@ Mac
 [Link](https://github.com/flylb1/JavaSerialPort/wiki)
 
 ### License
-JavaSerialPort is licensed under the [Apache 2 License](http://www.apache.org/licenses/LICENSE-2.0.html), meaning you can use it free of charge, without strings attached in commercial and non-commercial projects.
+JavaSerialPort is licensed under the [Apache 2 License](http://www.apache.org/licenses/LICENSE-2.0.html), which means you can use it for free and without strings attached in commercial or non-commercial projects.
 
 ### Class Diagram
 ![Class Diagram](https://cloud.githubusercontent.com/assets/8717254/6818187/7a203752-d2e6-11e4-9618-9b077ad5461f.png)
