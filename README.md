@@ -46,7 +46,8 @@ Mac
 ###Wiki
 [Link](https://github.com/flylb1/JavaSerialPort/wiki)
 
-
-
 ### License
 JavaSerialPort is licensed under the [Apache 2 License](http://www.apache.org/licenses/LICENSE-2.0.html), meaning you can use it free of charge, without strings attached in commercial and non-commercial projects.
+
+### Class Diagram
+![Class Diagram](https://cloud.githubusercontent.com/assets/8717254/6818187/7a203752-d2e6-11e4-9618-9b077ad5461f.png)
