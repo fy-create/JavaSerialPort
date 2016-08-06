@@ -32,8 +32,11 @@ This SDK includes the RXTX library.
 RXTX 2.1-7
 -- Please uncompress rxtx-2.1-7-bins-r2.rar
 
-Window
+Window32
 - rxtx-2.1-7-bins-r2/Windows/i368-mingw32/rxtxSerial.dll copy to system path(e.g. c:\windows\system32\)
+ 
+Window64
+- [mfz-rxtx-2.2-20081207-win-x64](https://bitbucket.org/jlauer/mfz-cdn/downloads/mfz-rxtx-2.2-20081207-win-x64.zip)
 
 Linux32
 - rxtx-2.1-7-bins-r2/Linux/i686-unknown-linux-gnu/librxtxSerial.so copy to system path(e.g. /lib)
