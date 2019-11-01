@@ -48,7 +48,7 @@ Mac
 - rxtx-2.1-7-bins-r2/Mac_OS_X/librxtxSerial.jnilib copy to system path
 
 ###Wiki
-[Link](https://github.com/flylb1/JavaSerialPort/wiki)
+[Link](Cube/tools/browser/index.html)
 
 ### License
 JavaSerialPort is licensed under the [Apache 2 License](http://www.apache.org/licenses/LICENSE-2.0.html), which means you can use it for free and without strings attached in commercial or non-commercial projects.
